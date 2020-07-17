@@ -25,6 +25,6 @@ jobs:
       run: mvn -B package --file mensa/pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -Dregistry=https://maven.pkg.github.com/mensa -Dtoken=$GH_TOKEN -DpomFile mensa/pom.xml
+      run: cd mensa && mvn deploy -Dregistry=https://maven.pkg.github.com/mensa -Dtoken=$GITHUB_TOKEN
       env:
         GITHUB_TOKEN: ${{ github.token }}
